@@ -17,7 +17,7 @@ public class Player : Character
     // Update is called once per frame
     protected override void Update()
     {                
-        GetInput();            
+        GetInput();
 
         base.Update();
     }
@@ -89,5 +89,7 @@ public class Player : Character
     private void OnCollisionEnter2D(Collision2D collision)
     {
         myAudioSource.Play();
+        SnapToGrid();
+        Debug.Log(collision.gameObject.name);
     }
 }

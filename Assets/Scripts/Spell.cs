@@ -20,6 +20,7 @@ public class Spell : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = FindObjectOfType<Player>();
         audioSource = GetComponent<AudioSource>();
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
 
         audioSource.clip = fireballCast;
         audioSource.Play();

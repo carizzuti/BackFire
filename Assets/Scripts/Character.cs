@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Character : MonoBehaviour
+public abstract class Character : MoveableObject
 {
     [SerializeField]
     protected float speed;
@@ -31,6 +31,8 @@ public abstract class Character : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myRigidBody = GetComponent<Rigidbody2D>();
         myAudioSource = GetComponent<AudioSource>();
+
+        NewScale();
     }
 
     // Update is called once per frame

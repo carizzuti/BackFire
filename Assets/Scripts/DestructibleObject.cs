@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestructibleObject : MonoBehaviour
+public class DestructibleObject : MoveableObject
 {
     [SerializeField]
     private int health;
@@ -20,6 +20,7 @@ public class DestructibleObject : MonoBehaviour
         animator.SetInteger("Health", health);
 
         audioSource = GetComponent<AudioSource>();
+        NewScale();
     }
 
     // Update is called once per frame

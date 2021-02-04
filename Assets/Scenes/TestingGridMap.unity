@@ -612,6 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e41e18abdfba3447a6233de2e7428c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridSize: {x: 2, y: 5, z: 1}
   speed: 0
   spellPrefab:
   - {fileID: 7494554324763694696, guid: c4b13eaa0ce358c49b10cede9c262c97, type: 3}
@@ -680,7 +681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714981851}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.52, y: -0.71, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1606339244}
