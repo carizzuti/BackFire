@@ -66,6 +66,7 @@ public class Spell : MonoBehaviour
             audioSource.clip = fireballHit;
             audioSource.Play();
             GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+            player.spellActive = false;
             Destroy(gameObject, 1f);
         }        
     }

@@ -14,10 +14,16 @@ public class Player : Character
 
     private Vector2 shotDirection = Vector2.down;
 
+    public bool canTurn = true;
+    public bool spellActive = false;
+
     // Update is called once per frame
     protected override void Update()
-    {                
-        GetInput();
+    {
+        if (canTurn && !spellActive)
+        {
+            GetInput();
+        }
 
         base.Update();
     }
@@ -55,6 +61,8 @@ public class Player : Character
             if (!isAttacking && !IsMoving)
             {
                 attackRoutine = StartCoroutine(Attack());
+                canTurn = false;
+                spellActive = true;
             }                
         }
     }
@@ -90,6 +98,7 @@ public class Player : Character
     {
         myAudioSource.Play();
         SnapToGrid();
+        canTurn = true;
         Debug.Log(collision.gameObject.name);
     }
 }
