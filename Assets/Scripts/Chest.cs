@@ -6,6 +6,7 @@ public class Chest : MonoBehaviour
 {
     private Animator animator;
     private AudioSource myAudioSource;
+    private bool isOpen = false;
     
     // Start is called before the first frame update
     void Start()
@@ -22,10 +23,11 @@ public class Chest : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !isOpen)
         {
             animator.SetTrigger("Open");
             myAudioSource.Play();
+            isOpen = true;
         }
     }
 }
