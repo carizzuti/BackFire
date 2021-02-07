@@ -11,6 +11,7 @@ public class Collectible : MonoBehaviour
     private int goldPickedUp, silverPickedUp, keysPickedUp;
 
     [SerializeField] private Text goldInventory, silverInventory, keyInventory;
+    [SerializeField] private Chest chest;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class Collectible : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -47,19 +48,21 @@ public class Collectible : MonoBehaviour
             {
                 goldPickedUp += 1;
                 goldInventory.text = goldPickedUp + " / " + countGold;
-                Debug.Log("Gold trigger");
             }
             else if (gameObject.tag == "Silver")
             {
                 silverPickedUp += 1;
                 silverInventory.text = silverPickedUp + " / " + countSilver;
-                Debug.Log("Silver trigger");
             }
             else if (gameObject.tag == "Key")
             {
                 keysPickedUp += 1;
                 keyInventory.text = keysPickedUp + " / " + countKeys;
-                Debug.Log("Key trigger");
+
+                if (getCountKeys.Length == keysPickedUp)
+                {
+                    chest.canOpen = true;
+                }
             }
 
             Destroy(gameObject, audioSource.clip.length);
