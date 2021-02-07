@@ -1,37 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Collectible : MonoBehaviour
 {
     private AudioSource audioSource;
+    private GameObject[] getCountGold, getCountSilver, getCountKeys;
+    private int countGold, countSilver, countKeys;
+    private int goldPickedUp, silverPickedUp, keysPickedUp;
 
-    private float idleOffset;
+    [SerializeField] private Text goldInventory, silverInventory, keyInventory;
 
-    [SerializeField]
-    private float speed = 5.0f;
-
-    [SerializeField]
-    private float height = 0.5f;
-    
-    
     // Start is called before the first frame update
     void Start()
     {
+        getCountGold = GameObject.FindGameObjectsWithTag("Gold");
+        countGold = getCountGold.Length;
+        goldInventory.text = goldPickedUp + " / " + countGold;
+
+        getCountSilver = GameObject.FindGameObjectsWithTag("Silver");
+        countSilver = getCountSilver.Length;
+        silverInventory.text = silverPickedUp + " / " + countSilver;
+
+        getCountKeys = GameObject.FindGameObjectsWithTag("Key");
+        countKeys = getCountKeys.Length;
+        keyInventory.text = keysPickedUp + " / " + countKeys;
+
         audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        IdleEffect();
-    }
-
-    private void IdleEffect()
-    {
-       Vector3 pos = transform.position;
-       float newY = Mathf.Sin(Time.time * speed);
-       transform.position = new Vector3(pos.x, newY) * height;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -40,6 +42,26 @@ public class Collectible : MonoBehaviour
         {
             audioSource.Play();
             GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+
+            if (gameObject.tag == "Gold")
+            {
+                goldPickedUp += 1;
+                goldInventory.text = goldPickedUp + " / " + countGold;
+                Debug.Log("Gold trigger");
+            }
+            else if (gameObject.tag == "Silver")
+            {
+                silverPickedUp += 1;
+                silverInventory.text = silverPickedUp + " / " + countSilver;
+                Debug.Log("Silver trigger");
+            }
+            else if (gameObject.tag == "Key")
+            {
+                keysPickedUp += 1;
+                keyInventory.text = keysPickedUp + " / " + countKeys;
+                Debug.Log("Key trigger");
+            }
+
             Destroy(gameObject, audioSource.clip.length);
         }
     }
