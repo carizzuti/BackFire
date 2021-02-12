@@ -12,6 +12,7 @@ public class Collectible : MonoBehaviour
 
     [SerializeField] private Text goldInventory, silverInventory, keyInventory;
     [SerializeField] private Chest chest;
+    [SerializeField] private UnlockableDoor door;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,11 @@ public class Collectible : MonoBehaviour
                 keyInventory.text = keysPickedUp + " / " + countKeys;
 
                 if (getCountKeys.Length == keysPickedUp)
+                {
+                    door.UnlockDoor();
+                }
+
+                if (keysPickedUp > 0)
                 {
                     chest.canOpen = true;
                 }

@@ -90,6 +90,5 @@ public abstract class Character : MoveableObject
             isAttacking = false;
             myAnimator.SetBool("attack", isAttacking);
         }
-
     }
 }

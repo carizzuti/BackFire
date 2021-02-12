@@ -16,6 +16,7 @@ public class Player : Character
 
     public bool canTurn = true;
     public bool spellActive = false;
+    public bool falling = false;
 
     // Update is called once per frame
     protected override void Update()
@@ -23,6 +24,16 @@ public class Player : Character
         if (canTurn && !spellActive)
         {
             GetInput();
+        }
+
+        if (falling)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, 2.0f * Time.deltaTime);
+
+            if (transform.localScale.x < 0.1 && transform.localScale.y < 0.1 && transform.localScale.z < 0.1)
+            {
+                Destroy(gameObject, 1f);
+            }
         }
 
         base.Update();
@@ -84,7 +95,7 @@ public class Player : Character
     {
         Instantiate(spellPrefab[0], exitPoints[exitIndex].position, Quaternion.identity);
 
-        speed = 5;
+        speed = 1;
 
         myRigidBody.velocity = -(shotDirection * speed);
     }
@@ -94,11 +105,24 @@ public class Player : Character
         return shotDirection;
     }
 
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    public void PlayerFall()
+    {
+        direction = Vector2.zero;
+        direction = Vector2.down;
+        myRigidBody.velocity = Vector2.zero;
+        falling = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         myAudioSource.Play();
         SnapToGrid();
         canTurn = true;
-        Debug.Log(collision.gameObject.name);
+        Debug.Log(collision.gameObject.name);        
     }
 }
