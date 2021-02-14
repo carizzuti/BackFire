@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Player : Character
 {
-    [SerializeField]
-    private GameObject[] spellPrefab;
-
-    [SerializeField]
-    private Transform[] exitPoints;
+    [SerializeField] private GameObject[] spellPrefab;
+    [SerializeField] private Transform[] exitPoints;
+    [SerializeField] private float speed;
 
     private int exitIndex = 3;
 
@@ -94,27 +92,33 @@ public class Player : Character
     public void CastSpell()
     {
         Instantiate(spellPrefab[0], exitPoints[exitIndex].position, Quaternion.identity);
-
-        speed = 1;
-
         myRigidBody.velocity = -(shotDirection * speed);
     }
 
-    public Vector2 GetDirection()
+    public void ExitDoor(Vector2 exitDirection)
+    {
+        myRigidBody.velocity = exitDirection * speed;
+    }
+
+    public Vector2 GetShotDirection()
     {
         return shotDirection;
     }
-
-    public float GetSpeed()
+    public void SetShotDirection(Vector2 newShotDirection)
     {
-        return speed;
+        shotDirection = newShotDirection;
+    }
+
+    public void SetPlayerDirection(Vector2 playerDirection)
+    {
+        direction = playerDirection;
     }
 
     public void PlayerFall()
     {
         direction = Vector2.zero;
         direction = Vector2.down;
-        myRigidBody.velocity = Vector2.zero;
+        StopMoving();
         falling = true;
     }
 
@@ -124,5 +128,10 @@ public class Player : Character
         SnapToGrid();
         canTurn = true;
         Debug.Log(collision.gameObject.name);        
+    }
+
+    public void StopMoving()
+    {
+        myRigidBody.velocity = Vector2.zero;
     }
 }

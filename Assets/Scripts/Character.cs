@@ -4,9 +4,6 @@ using UnityEngine;
 
 public abstract class Character : MoveableObject
 {
-    [SerializeField]
-    protected float speed;
-
     protected Animator myAnimator;
     protected Rigidbody2D myRigidBody;
     protected AudioSource myAudioSource;
@@ -39,16 +36,6 @@ public abstract class Character : MoveableObject
     protected virtual void Update()
     { 
         HandleLayers();
-    }
-
-    private void FixedUpdate()
-    {
-        //Move();
-    }
-
-    public void Move()
-    {
-        myRigidBody.velocity = direction.normalized * speed;
     }
 
     public void HandleLayers()

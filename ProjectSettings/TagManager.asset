@@ -9,6 +9,7 @@ TagManager:
   - Silver
   - Hole
   - PlayerCenter
+  - Portal
   layers:
   - Default
   - TransparentFX

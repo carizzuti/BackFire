@@ -34,7 +34,7 @@ public class Spell : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 shootDirection = player.GetDirection();
+        Vector2 shootDirection = player.GetShotDirection();
 
         rb.velocity = shootDirection * speed;
 
