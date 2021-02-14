@@ -36,11 +36,13 @@ public class DoorPortal : MoveableObject
     {
         player.StopMoving();
         yield return new WaitForSeconds(0.5f);
+
         player.gameObject.SetActive(false);
         player.SetPlayerDirection(-exitDirection);
         player.transform.position = exitLocation;
         player.SetShotDirection(-exitDirection);
         player.gameObject.SetActive(true);
+
         yield return new WaitForSeconds(0.5f);
         player.ExitDoor(exitDirection);
     }
