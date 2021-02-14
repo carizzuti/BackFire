@@ -7,7 +7,7 @@ public class Hole : MoveableObject
     private AudioSource audioSource;
 
     [SerializeField] private Player player;
-    [SerializeField] private AudioClip falling;
+    [SerializeField] private AudioClip falling, gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +25,20 @@ public class Hole : MoveableObject
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Falling");
-            audioSource.Play();
-            player.transform.position = this.transform.position;
-            player.PlayerFall();
+            StartCoroutine(FallingandGameOver());
         }
+    }
+
+    IEnumerator FallingandGameOver()
+    {
+        audioSource.clip = falling;
+        audioSource.Play();
+        player.transform.position = this.transform.position;
+        player.PlayerFall();
+
+        yield return new WaitForSeconds(falling.length);
+
+        audioSource.clip = gameOver;
+        audioSource.Play();
     }
 }
