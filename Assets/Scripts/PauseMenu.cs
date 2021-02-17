@@ -27,6 +27,14 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            if (isPaused)
+            {
+                TimerController.instance.UnPauseTimer();
+            }
+            else
+            {
+                TimerController.instance.EndTimer();
+            }
             isPaused = !isPaused;
         }
 
@@ -42,12 +50,14 @@ public class PauseMenu : MonoBehaviour
 
     public void ActivateMenu()
     {
+        //TimerController.instance.EndTimer();
         Time.timeScale = 0;
         pauseMenuUi.SetActive(true);
     }
 
     public void DeactivateMenu()
     {
+        //TimerController.instance.UnPauseTimer();
         Time.timeScale = 1;
         pauseMenuUi.SetActive(false);
         isPaused = false;

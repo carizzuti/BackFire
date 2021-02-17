@@ -50,5 +50,7 @@ public class UnlockableDoor : MoveableObject
 
         audioSource.clip = winAudio;
         audioSource.Play();
+
+        TimerController.instance.EndTimer();
     }
 }

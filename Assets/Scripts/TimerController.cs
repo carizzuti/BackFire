@@ -40,6 +40,13 @@ public class TimerController : MonoBehaviour
         timerGoing = false;
     }
 
+    public void UnPauseTimer()
+    {
+        timerGoing = true;
+
+        StartCoroutine(UpdateTimer());
+    }
+
     private IEnumerator UpdateTimer()
     {
         while (timerGoing)

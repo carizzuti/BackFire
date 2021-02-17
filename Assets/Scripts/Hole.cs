@@ -40,5 +40,7 @@ public class Hole : MoveableObject
 
         audioSource.clip = gameOver;
         audioSource.Play();
+
+        TimerController.instance.EndTimer();
     }
 }
