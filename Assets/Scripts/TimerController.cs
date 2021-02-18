@@ -24,7 +24,7 @@ public class TimerController : MonoBehaviour
     void Start()
     {
         timeCounter.text = "Time: 00:00.00";
-        timerGoing = false;
+        timerGoing = true;
     }
 
     public void BeginTimer()
@@ -58,5 +58,10 @@ public class TimerController : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public float GetElapsedTime()
+    {
+        return elapsedTime;
     }
 }

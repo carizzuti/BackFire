@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Collectible : MonoBehaviour
 {
+    public static Collectible instance;
+
     private AudioSource audioSource;
     private GameObject[] getCountGold, getCountSilver, getCountKeys;
     private int countGold, countSilver, countKeys;
@@ -13,6 +15,11 @@ public class Collectible : MonoBehaviour
     [SerializeField] private Text goldInventory, silverInventory, keyInventory;
     [SerializeField] private Chest chest;
     [SerializeField] private UnlockableDoor door;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -73,5 +80,15 @@ public class Collectible : MonoBehaviour
 
             Destroy(gameObject, audioSource.clip.length);
         }
+    }
+
+    public int GetGoldCount()
+    {
+        return goldPickedUp;
+    }
+
+    public int GetSilverCount()
+    {
+        return silverPickedUp;
     }
 }

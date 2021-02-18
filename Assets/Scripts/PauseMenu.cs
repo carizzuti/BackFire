@@ -50,14 +50,12 @@ public class PauseMenu : MonoBehaviour
 
     public void ActivateMenu()
     {
-        //TimerController.instance.EndTimer();
         Time.timeScale = 0;
         pauseMenuUi.SetActive(true);
     }
 
     public void DeactivateMenu()
     {
-        //TimerController.instance.UnPauseTimer();
         Time.timeScale = 1;
         pauseMenuUi.SetActive(false);
         isPaused = false;

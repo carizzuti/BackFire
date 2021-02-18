@@ -52,5 +52,6 @@ public class UnlockableDoor : MoveableObject
         audioSource.Play();
 
         TimerController.instance.EndTimer();
+        WinMenu.instance.OpenWinMenu();
     }
 }

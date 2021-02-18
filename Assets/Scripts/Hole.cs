@@ -42,5 +42,6 @@ public class Hole : MoveableObject
         audioSource.Play();
 
         TimerController.instance.EndTimer();
+        LossMenu.instance.OpenLossMenu();
     }
 }
