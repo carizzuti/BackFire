@@ -11,26 +11,17 @@ public class WinMenu : MonoBehaviour
 
     [SerializeField] private GameObject winMenuUI;
     [SerializeField] private Text goldScore, silverScore, timeBonusScore, totalScore;
+    [SerializeField] private Text goldInventory, silverInventory, timeCounter;
+    [SerializeField] private int parTime = 60; // in seconds
 
     private void Awake()
     {
         instance = this;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void OpenWinMenu()
     {
-        Time.timeScale = 0;
+        InventoryStats();
         GetScores();
         winMenuUI.SetActive(true);
     }
@@ -50,13 +41,29 @@ public class WinMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    private void InventoryStats()
+    {
+        goldInventory.text = GameController.instance.GetGoldCollected() + " / " + GameController.instance.GetGoldAvailable();
+        silverInventory.text = GameController.instance.GetSilverCollected() + " / " + GameController.instance.GetGoldAvailable();
+
+        TimeSpan timePlayed = TimeSpan.FromSeconds(TimerController.instance.GetElapsedTime());
+        string timePlayingStr = "Time: " + timePlayed.ToString("mm':'ss'.'ff");
+        timeCounter.text = timePlayingStr;
+    }
+
     private void GetScores()
     {
         // Gold coin = 100 pts, silver coin = 50 pts, timeBonus = 10 pts per second under par
         int completionPoints = 500;
-        int goldPoints = 100 * Collectible.instance.GetGoldCount();
-        int silverPoints = 50 * Collectible.instance.GetSilverCount();
-        int timeBonusPoints = (int)Math.Round(TimerController.instance.GetElapsedTime() * 10);
+        int goldPoints = 100 * GameController.instance.GetGoldCollected();
+        int silverPoints = 50 * GameController.instance.GetSilverCollected();
+        int timeBonusPoints = (parTime - (int)Math.Round(TimerController.instance.GetElapsedTime())) * 10;
+
+        if (timeBonusPoints < 0)
+        {
+            timeBonusPoints = 0;
+        }
+
         int total = goldPoints + silverPoints + timeBonusPoints + completionPoints;
 
         goldScore.text = "Gold Collected: " + goldPoints;

@@ -36,11 +36,12 @@ public class UnlockableDoor : MoveableObject
     {
         if (collision.gameObject.tag == "Player" && allKeysCollected)
         {
-            StartCoroutine(OpenDoorandCompleteLevel());
+            StartCoroutine(OpenDoorandCompleteLevel(collision.gameObject));
+            //collision.gameObject.SetActive(false);
         }
     }
 
-    IEnumerator OpenDoorandCompleteLevel()
+    IEnumerator OpenDoorandCompleteLevel(GameObject ob)
     {
         audioSource.clip = openAudio;
         audioSource.Play();
@@ -53,5 +54,8 @@ public class UnlockableDoor : MoveableObject
 
         TimerController.instance.EndTimer();
         WinMenu.instance.OpenWinMenu();
+
+        yield return new WaitForSeconds(0.08f);
+        ob.SetActive(false);
     }
 }

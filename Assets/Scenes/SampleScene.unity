@@ -1433,7 +1433,7 @@ GameObject:
   - component: {fileID: 234306420}
   - component: {fileID: 234306419}
   m_Layer: 5
-  m_Name: Gold
+  m_Name: GoldInventoryWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1683,7 +1683,7 @@ GameObject:
   - component: {fileID: 300457164}
   - component: {fileID: 300457163}
   m_Layer: 5
-  m_Name: InventoryMain (1)
+  m_Name: InventoryWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4119,6 +4119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d78c39038c3e5e47ad7caae9f3e05bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldInventory: {fileID: 917523988}
+  silverInventory: {fileID: 1360425232}
+  keyInventory: {fileID: 1212926940}
+  chest: {fileID: 223668066}
+  door: {fileID: 1219808984}
 --- !u!4 &692729756
 Transform:
   m_ObjectHideFlags: 0
@@ -5116,7 +5121,7 @@ GameObject:
   - component: {fileID: 917523989}
   - component: {fileID: 917523988}
   m_Layer: 5
-  m_Name: Gold
+  m_Name: GoldInventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6491,7 +6496,7 @@ GameObject:
   - component: {fileID: 1086815909}
   - component: {fileID: 1086815908}
   m_Layer: 5
-  m_Name: Silver
+  m_Name: SilverInventoryWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7010,6 +7015,10 @@ MonoBehaviour:
   silverScore: {fileID: 1098787918}
   timeBonusScore: {fileID: 1879766090}
   totalScore: {fileID: 963204361}
+  goldInventory: {fileID: 234306419}
+  silverInventory: {fileID: 1086815908}
+  timeCounter: {fileID: 1358618212}
+  parTime: 10
 --- !u!4 &1126337013
 Transform:
   m_ObjectHideFlags: 0
@@ -7532,7 +7541,7 @@ GameObject:
   - component: {fileID: 1212926941}
   - component: {fileID: 1212926940}
   m_Layer: 5
-  m_Name: Keys
+  m_Name: KeyInventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8881,7 +8890,7 @@ GameObject:
   - component: {fileID: 1358618213}
   - component: {fileID: 1358618212}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: TimeWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8959,7 +8968,7 @@ GameObject:
   - component: {fileID: 1360425233}
   - component: {fileID: 1360425232}
   m_Layer: 5
-  m_Name: Silver
+  m_Name: SilverInventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
