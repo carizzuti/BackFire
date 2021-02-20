@@ -37,7 +37,6 @@ public class UnlockableDoor : MoveableObject
         if (collision.gameObject.tag == "Player" && allKeysCollected)
         {
             StartCoroutine(OpenDoorandCompleteLevel(collision.gameObject));
-            //collision.gameObject.SetActive(false);
         }
     }
 
