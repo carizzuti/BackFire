@@ -44,7 +44,7 @@ public class WinMenu : MonoBehaviour
     private void InventoryStats()
     {
         goldInventory.text = GameController.instance.GetGoldCollected() + " / " + GameController.instance.GetGoldAvailable();
-        silverInventory.text = GameController.instance.GetSilverCollected() + " / " + GameController.instance.GetGoldAvailable();
+        silverInventory.text = GameController.instance.GetSilverCollected() + " / " + GameController.instance.GetSilverAvailable();
 
         TimeSpan timePlayed = TimeSpan.FromSeconds(TimerController.instance.GetElapsedTime());
         string timePlayingStr = "Time: " + timePlayed.ToString("mm':'ss'.'ff");
