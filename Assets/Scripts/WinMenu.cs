@@ -33,7 +33,7 @@ public class WinMenu : MonoBehaviour
 
     public void LevelSelect()
     {
-        // Not implemented yet
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void MainMenu()
