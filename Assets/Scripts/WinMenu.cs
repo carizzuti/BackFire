@@ -35,7 +35,7 @@ public class WinMenu : MonoBehaviour
 
     public void LevelSelect()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("LevelSelectMenu1");
     }
 
     public void MainMenu()
