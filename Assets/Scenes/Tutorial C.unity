@@ -3800,8 +3800,8 @@ MonoBehaviour:
   size: {x: 1, y: 1, z: 1}
   spellPrefab:
   - {fileID: 7494554324763694696, guid: c4b13eaa0ce358c49b10cede9c262c97, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8554397379831897360, guid: 5f3982df004f35041a8c41ca4dbccc69, type: 3}
+  - {fileID: 6452176981131924178, guid: 8ec6d9184202a5c4881f560f08238754, type: 3}
   exitPoints:
   - {fileID: 1506988737}
   - {fileID: 574843601}

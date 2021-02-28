@@ -4793,8 +4793,8 @@ MonoBehaviour:
   size: {x: 1, y: 1, z: 1}
   spellPrefab:
   - {fileID: 7494554324763694696, guid: c4b13eaa0ce358c49b10cede9c262c97, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8554397379831897360, guid: 5f3982df004f35041a8c41ca4dbccc69, type: 3}
+  - {fileID: 6452176981131924178, guid: 8ec6d9184202a5c4881f560f08238754, type: 3}
   exitPoints:
   - {fileID: 1506988737}
   - {fileID: 574843601}
@@ -4862,7 +4862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 898772990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: -2, z: 0}
+  m_LocalPosition: {x: 1, y: -1, z: 0}
   m_LocalScale: {x: 0.66079295, y: 0.60728747, z: 1}
   m_Children:
   - {fileID: 1346802739}
@@ -5197,7 +5197,6 @@ GameObject:
   m_Component:
   - component: {fileID: 925604516}
   - component: {fileID: 925604517}
-  - component: {fileID: 925604518}
   m_Layer: 0
   m_Name: Left Wall
   m_TagString: Untagged
@@ -5236,7 +5235,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -5.6075473, y: 0.669014}
+  m_Offset: {x: -5.6075473, y: -0.32730865}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5247,33 +5246,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15536976, y: 2.3085308}
-  m_EdgeRadius: 0
---- !u!61 &925604518
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 925604515}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -5.607547, y: -1.9308865}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.15536976, y: 1.1176453}
+  m_Size: {x: 0.15536976, y: 4.301176}
   m_EdgeRadius: 0
 --- !u!1 &934783901
 GameObject:
@@ -15271,7 +15244,7 @@ PrefabInstance:
     - target: {fileID: 4529009776108407819, guid: 8f786fc1eb112fe4faa77261e3757aee,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4529009776108407819, guid: 8f786fc1eb112fe4faa77261e3757aee,
         type: 3}
@@ -15498,7 +15471,7 @@ PrefabInstance:
     - target: {fileID: 2605487368449951407, guid: 5c7014e6e12ef2d4fafb5a350f0eba0e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2605487368449951407, guid: 5c7014e6e12ef2d4fafb5a350f0eba0e,
         type: 3}

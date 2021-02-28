@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,7 @@ public class WinMenu : MonoBehaviour
         InventoryStats();
         GetScores();
         winMenuUI.SetActive(true);
+        SaveData();
     }
 
     public void Restart()
@@ -72,4 +74,12 @@ public class WinMenu : MonoBehaviour
         totalScore.text = "Total Score: " + total;
     }
 
+    private void SaveData()
+    {
+        PlayerStats.Gold += GameController.instance.GetGoldCollected();
+        PlayerStats.Silver += GameController.instance.GetSilverCollected();
+    }
+
 }
+
+

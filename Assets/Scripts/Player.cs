@@ -91,7 +91,7 @@ public class Player : Character
 
     public void CastSpell()
     {
-        Instantiate(spellPrefab[0], exitPoints[exitIndex].position, Quaternion.identity);
+        Instantiate(spellPrefab[PlayerStats.SpellActive], exitPoints[exitIndex].position, Quaternion.identity);
         myRigidBody.velocity = -(shotDirection * speed);
     }
 

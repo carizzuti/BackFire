@@ -7,11 +7,12 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("LevelSelectMenu");
+        SceneManager.LoadScene("LevelSelectMenu1");
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        //Application.Quit();
+        SceneManager.LoadScene("ShopMenu");
     }
 }
